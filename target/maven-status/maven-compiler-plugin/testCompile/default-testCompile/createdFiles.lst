@@ -1,0 +1,4 @@
+com\example\fhirconverter\ComplexConversionTest.class
+com\example\fhirconverter\ConversionControllerTest.class
+com\example\fhirconverter\GenderDebugTest.class
+com\example\fhirconverter\FhirFilterTests.class

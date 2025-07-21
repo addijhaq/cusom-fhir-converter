@@ -1,0 +1,103 @@
+{
+  "resourceType": "Patient",
+  "id": "{{ id | default: uuid }}",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+    {% assign has_previous = false %}
+    {% if ssn %}
+      {% if has_previous %},{% endif %}
+      {{ ssn | fhir_identifier: 'SSN' | json }}
+      {% assign has_previous = true %}
+    {% endif %}
+    {% if mrn %}
+      {% if has_previous %},{% endif %}
+      {{ mrn | fhir_identifier: 'MRN' | json }}
+      {% assign has_previous = true %}
+    {% endif %}
+    {% if drivers_license %}
+      {% if has_previous %},{% endif %}
+      {{ drivers_license | fhir_identifier: 'DL' | json }}
+      {% assign has_previous = true %}
+    {% endif %}
+    {% if identifier_value %}
+      {% if has_previous %},{% endif %}
+      {
+        "system": "{{ identifier_system | default: 'urn:oid:1.2.3.4.5' }}",
+        "value": "{{ identifier_value }}"
+      }
+    {% endif %}
+  ],
+  "active": {{ active | default: true }},
+  "name": [
+    {% if full_name %}
+      {{ full_name | fhir_name_parts | json }}
+    {% elsif names %}
+      {% for name in names %}
+        {
+          "use": "{{ name.use | default: 'official' }}",
+          "family": "{{ name.family }}",
+          "given": {{ name.given | json }}
+          {% if name.prefix %},"prefix": {{ name.prefix | json }}{% endif %}
+          {% if name.suffix %},"suffix": {{ name.suffix | json }}{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% else %}
+      {
+        "use": "official",
+        "family": "{{ family_name }}",
+        "given": {{ given_names | json }}
+      }
+    {% endif %}
+  ],
+  "gender": "{{ gender | fhir_code: 'gender' }}"
+  {% if birth_date %},
+  "birthDate": "{{ birth_date | fhir_date: 'MM/dd/yyyy', 'yyyy-MM-dd' }}"
+  {% endif %}
+  {% if phone or mobile or work_phone or email %},
+  "telecom": [
+    {% assign telecom_count = 0 %}
+    {% if phone %}
+      {{ phone | fhir_phone: 'home' | json }}
+      {% assign telecom_count = telecom_count | plus: 1 %}
+    {% endif %}
+    {% if mobile %}
+      {% if telecom_count > 0 %},{% endif %}
+      {{ mobile | fhir_phone: 'mobile' | json }}
+      {% assign telecom_count = telecom_count | plus: 1 %}
+    {% endif %}
+    {% if work_phone %}
+      {% if telecom_count > 0 %},{% endif %}
+      {{ work_phone | fhir_phone: 'work' | json }}
+      {% assign telecom_count = telecom_count | plus: 1 %}
+    {% endif %}
+    {% if email %}
+      {% if telecom_count > 0 %},{% endif %}
+      {
+        "system": "email",
+        "value": "{{ email }}",
+        "use": "home"
+      }
+    {% endif %}
+  ]
+  {% endif %}
+  {% if simple_address or addresses %},
+  "address": [
+    {% if simple_address %}
+      {{ simple_address | fhir_address | json }}
+    {% elsif addresses %}
+      {% for addr in addresses %}
+        {
+          "use": "{{ addr.use | default: 'home' }}",
+          {% if addr.lines %}"line": {{ addr.lines | json }},{% endif %}
+          {% if addr.city %}"city": "{{ addr.city }}",{% endif %}
+          {% if addr.state %}"state": "{{ addr.state }}",{% endif %}
+          {% if addr.postal_code %}"postalCode": "{{ addr.postal_code }}",{% endif %}
+          "country": "{{ addr.country | default: 'US' }}"
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% endif %}
+  ]
+  {% endif %}
+}

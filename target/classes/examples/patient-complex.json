@@ -1,0 +1,110 @@
+{
+  "resourceType": "Patient",
+  "inputData": {
+    "ssn": "123456789",
+    "mrn": "MRN001234",
+    "drivers_license": "D123456789",
+    "identifiers": [
+      {
+        "system": "http://hospital.example.org/ids",
+        "value": "HOSP-12345",
+        "type": "MR",
+        "type_display": "Medical Record Number"
+      }
+    ],
+    "names": [
+      {
+        "use": "official",
+        "family": "Smith",
+        "given": ["John", "Michael"],
+        "prefix": ["Dr."],
+        "suffix": ["Jr.", "MD"],
+        "period": {
+          "start": "01/01/2020"
+        }
+      },
+      {
+        "use": "nickname",
+        "given": ["Johnny"]
+      }
+    ],
+    "gender": "M",
+    "birth_date": "03/15/1980",
+    "deceased_date": "12/31/2023",
+    "marital_status": "M",
+    "marital_status_display": "Married",
+    "phones": [
+      {
+        "number": "5551234567",
+        "use": "home"
+      },
+      {
+        "number": "(555) 987-6543",
+        "use": "mobile"
+      }
+    ],
+    "work_phone": "555-555-0199",
+    "fax": "555-555-0198",
+    "emails": [
+      "john.smith@email.com",
+      {
+        "address": "dr.smith@hospital.org",
+        "use": "work"
+      }
+    ],
+    "addresses": [
+      {
+        "use": "home",
+        "type": "physical",
+        "lines": ["123 Main Street", "Apt 4B"],
+        "city": "Boston",
+        "state": "MA",
+        "postal_code": "02101",
+        "country": "US",
+        "period": {
+          "start": "01/01/2020"
+        }
+      },
+      {
+        "use": "work",
+        "street": "456 Hospital Drive",
+        "city": "Cambridge",
+        "state": "MA",
+        "postal_code": "02139"
+      }
+    ],
+    "contacts": [
+      {
+        "relationship": "Emergency Contact",
+        "relationship_code": "C",
+        "full_name": "Jane Marie Smith",
+        "phone": "555-123-9999",
+        "email": "jane.smith@email.com"
+      },
+      {
+        "relationship": "Next of Kin",
+        "relationship_code": "N",
+        "name": "Robert Smith",
+        "phone": "555-456-7890"
+      }
+    ],
+    "preferred_language": "English",
+    "languages": [
+      {
+        "code": "es",
+        "display": "Spanish",
+        "preferred": false
+      }
+    ],
+    "race": {
+      "code": "2106-3",
+      "display": "White"
+    },
+    "ethnicity": {
+      "code": "2186-5",
+      "display": "Not Hispanic or Latino"
+    },
+    "birth_sex": "M"
+  },
+  "validate": true
+}

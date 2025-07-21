@@ -1,0 +1,113 @@
+{
+  "resourceType": "Bundle",
+  "inputData": {
+    "bundle_type": "transaction",
+    "entries": [
+      {
+        "resource_type": "Patient",
+        "method": "POST",
+        "patient_id": "patient-new-001",
+        "identifier_value": "PAT123456",
+        "full_name": "Jane Elizabeth Doe",
+        "gender": "F",
+        "birth_date": "06/15/1985",
+        "phone": "5559876543",
+        "simple_address": "789 Oak Street, Seattle, WA, 98101",
+        "if_none_exist": "identifier=urn:oid:1.2.3.4.5|PAT123456"
+      },
+      {
+        "resource_type": "Observation",
+        "method": "POST",
+        "observation_id": "obs-bp-001",
+        "status": "final",
+        "code": "85354-9",
+        "code_display": "Blood pressure panel",
+        "patient_reference": "urn:uuid:patient-new-001",
+        "effective_date": "03/15/2024 09:00",
+        "components": [
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "value": 130,
+            "unit": "mmHg"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "value": 85,
+            "unit": "mmHg"
+          }
+        ]
+      },
+      {
+        "resource_type": "Observation",
+        "method": "POST",
+        "observation_id": "obs-weight-001",
+        "status": "final",
+        "code": "29463-7",
+        "code_display": "Body weight",
+        "patient_reference": "urn:uuid:patient-new-001",
+        "effective_date": "03/15/2024 09:00",
+        "value": 75.5,
+        "unit": "kg"
+      },
+      {
+        "resource_type": "Encounter",
+        "method": "POST",
+        "encounter_id": "encounter-001",
+        "status": "finished",
+        "encounter_class": "AMB",
+        "patient_reference": "urn:uuid:patient-new-001",
+        "period_start": "03/15/2024 09:00",
+        "period_end": "03/15/2024 10:30"
+      },
+      {
+        "resource_type": "MedicationRequest",
+        "method": "POST",
+        "medication_request_id": "med-req-001",
+        "status": "active",
+        "intent": "order",
+        "patient_reference": "urn:uuid:patient-new-001",
+        "medication_code": "387458008",
+        "medication_display": "Aspirin 81 MG Oral Tablet",
+        "medication_system": "http://snomed.info/sct",
+        "authored_on": "03/15/2024",
+        "dosage_text": "Take 1 tablet by mouth daily"
+      },
+      {
+        "resource": {
+          "resourceType": "Condition",
+          "clinicalStatus": {
+            "coding": [{
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }]
+          },
+          "verificationStatus": {
+            "coding": [{
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }]
+          },
+          "code": {
+            "coding": [{
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertension"
+            }]
+          },
+          "subject": {
+            "reference": "urn:uuid:patient-new-001"
+          },
+          "encounter": {
+            "reference": "urn:uuid:encounter-001"
+          },
+          "onsetDateTime": "2024-03-15"
+        },
+        "method": "POST",
+        "fullUrl": "urn:uuid:condition-001"
+      }
+    ]
+  },
+  "validate": false
+}

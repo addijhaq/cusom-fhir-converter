@@ -1,0 +1,99 @@
+{
+  "resourceType": "Encounter",
+  "id": "{{ id | default: uuid }}",
+  "status": "{{ status | default: 'finished' }}",
+  
+  {% comment %} Encounter class {% endcomment %}
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "{{ encounter_class | default: 'AMB' }}",
+    "display": "{{ encounter_class_display | default: 'ambulatory' }}"
+  },
+  
+  {% comment %} Encounter type {% endcomment %}
+  {% if encounter_type %}
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "{{ encounter_type_system | default: 'http://snomed.info/sct' }}",
+          "code": "{{ encounter_type_code }}",
+          "display": "{{ encounter_type }}"
+        }
+      ]
+    }
+  ],
+  {% endif %}
+  
+  {% comment %} Subject reference {% endcomment %}
+  "subject": {
+    "reference": "{{ patient_id | fhir_reference: 'Patient' }}"
+  },
+  
+  {% comment %} Participants {% endcomment %}
+  {% if participants %}
+  "participant": [
+    {% for participant in participants %}
+    {
+      {% if participant.type %}
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "{{ participant.type_code }}",
+              "display": "{{ participant.type }}"
+            }
+          ]
+        }
+      ],
+      {% endif %}
+      "individual": {
+        "reference": "{{ participant.id | fhir_reference: participant.resource_type | default: 'Practitioner' }}"
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  {% endif %}
+  
+  {% comment %} Period {% endcomment %}
+  "period": {
+    "start": "{{ period_start | fhir_date: 'MM/dd/yyyy HH:mm', 'yyyy-MM-dd\'T\'HH:mm:ssXXX' }}",
+    {% if period_end %}
+    "end": "{{ period_end | fhir_date: 'MM/dd/yyyy HH:mm', 'yyyy-MM-dd\'T\'HH:mm:ssXXX' }}"
+    {% endif %}
+  },
+  
+  {% comment %} Reason for visit {% endcomment %}
+  {% if reason_code %}
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "{{ reason_system | default: 'http://snomed.info/sct' }}",
+          "code": "{{ reason_code }}",
+          "display": "{{ reason_display }}"
+        }
+      ]
+    }
+  ],
+  {% endif %}
+  
+  {% comment %} Location {% endcomment %}
+  {% if location_id %}
+  "location": [
+    {
+      "location": {
+        "reference": "{{ location_id | fhir_reference: 'Location' }}"
+      }
+    }
+  ],
+  {% endif %}
+  
+  {% comment %} Service provider (Organization) {% endcomment %}
+  {% if service_provider_id %}
+  "serviceProvider": {
+    "reference": "{{ service_provider_id | fhir_reference: 'Organization' }}"
+  }
+  {% endif %}
+}

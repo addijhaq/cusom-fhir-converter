@@ -1,0 +1,15 @@
+{
+  "resourceType": "Patient",
+  "inputData": {
+    "ssn": "123456789",
+    "mrn": "MRN001234",
+    "full_name": "John Michael Doe Jr",
+    "gender": "M",
+    "birth_date": "01/15/1990",
+    "phone": "5551234567",
+    "mobile": "(555) 987-6543",
+    "email": "john.doe@email.com",
+    "simple_address": "123 Main St, Boston, MA, 02101"
+  },
+  "validate": true
+}
