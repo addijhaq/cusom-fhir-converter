@@ -25,19 +25,19 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 public class TemplateService {
-    
+
     private final TemplateParser templateParser;
     private final ResourceLoader resourceLoader;
-    
+
     @Value("${fhir.converter.templates-path}")
     private String templatesPath;
-    
+
     @Cacheable(value = "templates", key = "#resourceType")
     public Template loadTemplate(String resourceType) {
         try {
             String templatePath = templatesPath + resourceType.toLowerCase() + ".liquid";
             Resource resource = resourceLoader.getResource(templatePath);
-            
+
             try (InputStream is = resource.getInputStream()) {
                 String templateContent = new String(is.readAllBytes(), StandardCharsets.UTF_8);
                 return templateParser.parse(templateContent);
@@ -46,18 +46,17 @@ public class TemplateService {
             throw new TemplateException("Failed to load template for resource type: " + resourceType, e);
         }
     }
-    
+
     public String renderTemplate(String resourceType, Map<String, Object> data) {
         Template template = loadTemplate(resourceType);
-        
+
         // Add utility functions
         Map<String, Object> context = new HashMap<>(data);
         context.put("uuid", UUID.randomUUID().toString());
         context.put("now", Instant.now().toString());
-        
         return template.render(context);
     }
-    
+
     /**
      * Alternative method for rendering with instance-specific filters
      */
@@ -65,16 +64,21 @@ public class TemplateService {
         try {
             String templatePath = templatesPath + resourceType.toLowerCase() + ".liquid";
             Resource resource = resourceLoader.getResource(templatePath);
-            
+
             try (InputStream is = resource.getInputStream()) {
                 String templateContent = new String(is.readAllBytes(), StandardCharsets.UTF_8);
-                
+
                 // Create parser with additional filters
                 TemplateParser.Builder builder = new TemplateParser.Builder();
-                
+
                 additionalFilters.forEach(builder::withFilter);
-                
-                Template template = builder.build().parse(templateContent);
+
+                Template template = builder
+                    .withStripSingleLine(true)
+                    .withStripSpaceAroundTags(true)
+                    .build()
+                    .parse(templateContent);
+
                 return template.render(data);
             }
         } catch (IOException e) {
