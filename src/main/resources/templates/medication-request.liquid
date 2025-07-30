@@ -3,12 +3,12 @@
   "id": "{{ id | default: uuid }}",
   "status": "{{ status | default: 'active' }}",
   "intent": "{{ intent | default: 'order' }}",
-  
+
   {% comment %} Subject reference {% endcomment %}
   "subject": {
     "reference": "{{ patient_id | fhir_reference: 'Patient' }}"
   },
-  
+
   {% comment %} Medication reference or codeable concept {% endcomment %}
   {% if medication_reference %}
   "medicationReference": {
@@ -25,25 +25,29 @@
     ]
   },
   {% endif %}
-  
+
   {% comment %} Authored date {% endcomment %}
-  "authoredOn": "{{ authored_on | fhir_date: 'MM/dd/yyyy', 'yyyy-MM-dd' | default: now }}",
-  
+  "authoredOn": "{{ authored_on | fhir_date: 'MM/dd/yyyy', 'yyyy-MM-dd' | default: now }}"
+
   {% comment %} Requester {% endcomment %}
   {% if requester_id %}
-  "requester": {
+  ,"requester": {
     "reference": "{{ requester_id | fhir_reference: 'Practitioner' }}"
-  },
+  }
   {% endif %}
-  
+
   {% comment %} Dosage instructions {% endcomment %}
   {% if dosage_text or dosage_route or dosage_value %}
-  "dosageInstruction": [
+  ,"dosageInstruction": [
     {
+      {% assign dosage_prop_count = 0 %}
       {% if dosage_text %}
-      "text": "{{ dosage_text }}",
+      "text": "{{ dosage_text }}"
+      {% assign dosage_prop_count = dosage_prop_count | plus: 1 %}
       {% endif %}
+
       {% if dosage_route %}
+      {% if dosage_prop_count > 0 %},{% endif %}
       "route": {
         "coding": [
           {
@@ -52,9 +56,12 @@
             "display": "{{ dosage_route }}"
           }
         ]
-      },
+      }
+      {% assign dosage_prop_count = dosage_prop_count | plus: 1 %}
       {% endif %}
+
       {% if dosage_value and dosage_unit %}
+      {% if dosage_prop_count > 0 %},{% endif %}
       "doseAndRate": [
         {
           "type": {
@@ -73,9 +80,12 @@
             "code": "{{ dosage_unit | fhir_unit }}"
           }
         }
-      ],
+      ]
+      {% assign dosage_prop_count = dosage_prop_count | plus: 1 %}
       {% endif %}
+
       {% if dosage_frequency %}
+      {% if dosage_prop_count > 0 %},{% endif %}
       "timing": {
         "repeat": {
           "frequency": {{ dosage_frequency }},
@@ -85,12 +95,12 @@
       }
       {% endif %}
     }
-  ],
+  ]
   {% endif %}
-  
+
   {% comment %} Dispense request {% endcomment %}
   {% if dispense_quantity %}
-  "dispenseRequest": {
+  ,"dispenseRequest": {
     "quantity": {
       "value": {{ dispense_quantity }},
       "unit": "{{ dispense_unit | default: 'Tab' }}"

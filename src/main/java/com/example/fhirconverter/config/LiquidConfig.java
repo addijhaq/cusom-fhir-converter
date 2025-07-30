@@ -15,17 +15,20 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @EnableCaching
 public class LiquidConfig {
-    
+
     @Bean
     public TemplateParser liquidTemplateParser(List<Filter> customFilters) {
         TemplateParser.Builder builder = new TemplateParser.Builder();
-        
+
         // Register all custom filters
         customFilters.forEach(builder::withFilter);
-        
-        return builder.build();
+
+        // Set stripSpacesAroundTags and stripSingleLine to true for better JSON formatting
+        return builder.withStripSpaceAroundTags(true)
+                     .withStripSingleLine(true)
+                     .build();
     }
-    
+
     @Bean
     public CacheManager cacheManager() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager("templates");

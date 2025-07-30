@@ -1,7 +1,7 @@
 spring:
   application:
     name: fhir-json-converter
-  
+
   cache:
     type: caffeine
     caffeine:
@@ -20,7 +20,7 @@ fhir:
       enabled: true
       strict: false
     output-format: json
-    pretty-print: true
+    pretty-print: false
 
 management:
   endpoints:

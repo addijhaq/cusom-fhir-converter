@@ -1,0 +1,886 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.example:fhir-json-converter >-------------------
+[INFO] Building FHIR JSON Converter 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ fhir-json-converter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 14 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.14.0:compile (default-compile) @ fhir-json-converter ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ fhir-json-converter ---
+[INFO] skip non existing resourceDirectory /Users/ulhaqaddison/Workspaces/Personal/custom-fhir-converter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ fhir-json-converter ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 5 source files with javac [debug parameters release 21] to target/test-classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] /Users/ulhaqaddison/Workspaces/Personal/custom-fhir-converter/src/test/java/com/example/fhirconverter/ComplexConversionTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /Users/ulhaqaddison/Workspaces/Personal/custom-fhir-converter/src/test/java/com/example/fhirconverter/ComplexConversionTest.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- surefire:3.5.3:test (default-test) @ fhir-json-converter ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.fhirconverter.TemplateSyntaxTest
+11:45:50.807 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.fhirconverter.TemplateSyntaxTest]: TemplateSyntaxTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:45:50.854 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.fhirconverter.FhirConverterApplication for test class com.example.fhirconverter.TemplateSyntaxTest
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.5.3)
+2025-07-30T11:45:51.024-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.fhirconverter.TemplateSyntaxTest     : Starting TemplateSyntaxTest using Java 21.0.3 with PID 16585 (started by ulhaqaddison in /Users/ulhaqaddison/Workspaces/Personal/custom-fhir-converter)
+2025-07-30T11:45:51.024-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.fhirconverter.TemplateSyntaxTest     : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-30T11:45:51.024-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.fhirconverter.TemplateSyntaxTest     : No active profile set, falling back to 1 default profile: "default"
+2025-07-30T11:45:51.488-04:00  INFO 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.util.VersionUtil             : HAPI FHIR version 8.0.0 - Rev 091beb6d18
+2025-07-30T11:45:51.490-04:00  INFO 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.context.FhirContext          : Creating new FHIR context for FHIR version [R4]
+2025-07-30T11:45:51.494-04:00  INFO 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.validation.FhirValidator     : Ph-schematron library not found on classpath, will not attempt to perform schematron validation
+2025-07-30T11:45:51.754-04:00  WARN 16585 --- [fhir-json-converter] [           main] i.m.c.i.b.cache.CaffeineCacheMetrics     : The cache 'templates' is not recording statistics. No meters except 'cache.size' will be registered. Call 'Caffeine#recordStats()' prior to building the cache for metrics to be recorded.
+2025-07-30T11:45:51.792-04:00  INFO 16585 --- [fhir-json-converter] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-07-30T11:45:51.818-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.fhirconverter.TemplateSyntaxTest     : Started TemplateSyntaxTest in 0.908 seconds (process running for 1.682)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/Users/ulhaqaddison/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.6/byte-buddy-agent-1.17.6.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2025-07-30T11:45:52.356-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "test-id",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+      {
+        "system": "urn:oid:1.2.3.4.5",
+        "value": "12345"
+      }
+  ],
+  "active":true,
+  "name": [
+      {
+        "use": "official",
+        "family": "Doe",
+        "given":["John"]      }
+  ]
+}
+Testing template: Patient
+Response success: true
+2025-07-30T11:45:52.621-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "test-id",
+  "identifier": [
+    {
+      "system": "urn:oid:1.2.3.4.5",
+      "value": "12345"
+    }
+  ],
+  "active":true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given":["John"]    }
+  ]
+}
+Testing template: Patient-simple
+Response success: true
+2025-07-30T11:45:52.630-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "test-id",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+      {
+        "system": "urn:oid:1.2.3.4.5",
+        "value": "12345"
+      }
+  ],
+  "active":true,
+  "name": [
+      {
+        "use": "official",
+        "family": "Doe",
+        "given":["John"]      }
+  ]
+}
+Testing template: Patient-fixed
+Response success: true
+2025-07-30T11:45:52.637-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "test-id",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+      {
+        "system": "urn:oid:1.2.3.4.5",
+        "value": "12345"
+      }
+  ],
+  "active":true,
+  "name": [
+      {
+        "use": "official",
+        "family": "Doe",
+        "given":["John"]      }
+  ],
+  "gender": ""
+}
+2025-07-30T11:45:52.638-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="gender"] Invalid attribute value "": Attribute value must not be empty ("")
+Testing template: Patient-advanced
+Response success: true
+2025-07-30T11:45:52.659-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Bundle",
+  "id": "test-id",
+  "type": "transaction",
+  "timestamp": "2025-07-30T15:45:52.658479Z"
+}
+Testing template: Bundle
+Response success: true
+2025-07-30T11:45:52.676-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Encounter",
+  "id": "test-id",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "subject": {
+    "reference": ""
+  },
+  "period": {
+    "start": ""
+  }
+}
+2025-07-30T11:45:52.728-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="reference"] Invalid attribute value "": Attribute value must not be empty ("")
+2025-07-30T11:45:52.729-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="start"] Invalid attribute value "": Attribute value must not be empty ("")
+Testing template: Encounter
+Response success: true
+2025-07-30T11:45:52.735-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "MedicationRequest",
+  "id": "test-id",
+  "status": "active",
+  "intent": "order",
+  "subject": {
+    "reference": ""
+  },
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "123456",
+        "display": "Test Medication"
+      }
+    ]
+  },
+  "authoredOn": "2025-07-30T15:45:52.734986Z"
+}
+2025-07-30T11:45:52.738-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="reference"] Invalid attribute value "": Attribute value must not be empty ("")
+Testing template: Medication-request
+Response success: true
+2025-07-30T11:45:52.746-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Observation",
+  "id": "test-id",
+  "status": "final"
+  ,"code": {
+    "coding": [{
+      "system": "http://loinc.org",
+      "code": "8480-6",
+      "display": "Systolic blood pressure"
+    }]
+  }
+  ,"subject": {
+    "reference": ""
+  }
+  ,"valueQuantity": {
+    "value":120,
+    "unit": "mm[Hg]",
+    "system": "http://unitsofmeasure.org",
+    "code": "mm[Hg]"
+  }
+}
+2025-07-30T11:45:52.749-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="reference"] Invalid attribute value "": Attribute value must not be empty ("")
+Testing template: Observation
+Response success: true
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.008 s -- in com.example.fhirconverter.TemplateSyntaxTest
+[INFO] Running com.example.fhirconverter.ConversionControllerTest
+2025-07-30T11:45:52.762-04:00  INFO 16585 --- [fhir-json-converter] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.fhirconverter.ConversionControllerTest]: ConversionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-30T11:45:52.766-04:00  INFO 16585 --- [fhir-json-converter] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.fhirconverter.FhirConverterApplication for test class com.example.fhirconverter.ConversionControllerTest
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.5.3)
+2025-07-30T11:45:52.778-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.f.ConversionControllerTest           : Starting ConversionControllerTest using Java 21.0.3 with PID 16585 (started by ulhaqaddison in /Users/ulhaqaddison/Workspaces/Personal/custom-fhir-converter)
+2025-07-30T11:45:52.778-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.ConversionControllerTest           : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-30T11:45:52.778-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.f.ConversionControllerTest           : No active profile set, falling back to 1 default profile: "default"
+2025-07-30T11:45:52.896-04:00  INFO 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.context.FhirContext          : Creating new FHIR context for FHIR version [R4]
+2025-07-30T11:45:53.012-04:00  WARN 16585 --- [fhir-json-converter] [           main] i.m.c.i.b.cache.CaffeineCacheMetrics     : The cache 'templates' is not recording statistics. No meters except 'cache.size' will be registered. Call 'Caffeine#recordStats()' prior to building the cache for metrics to be recorded.
+2025-07-30T11:45:53.028-04:00  INFO 16585 --- [fhir-json-converter] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-07-30T11:45:53.028-04:00  INFO 16585 --- [fhir-json-converter] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-07-30T11:45:53.029-04:00  INFO 16585 --- [fhir-json-converter] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-07-30T11:45:53.034-04:00  INFO 16585 --- [fhir-json-converter] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2025-07-30T11:45:53.045-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.f.ConversionControllerTest           : Started ConversionControllerTest in 0.278 seconds (process running for 2.909)
+2025-07-30T11:45:53.120-04:00  INFO 16585 --- [fhir-json-converter] [           main] c.e.f.controller.ConversionController    : Converting Patient resource
+2025-07-30T11:45:53.128-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "be4efcde-de07-4df5-abdf-19415bb43377",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+      {
+        "system": "urn:oid:1.2.3.4.5",
+        "value": "12345"
+      }
+  ],
+  "active":true,
+  "name": [
+      {
+        "use": "official",
+        "family": "Doe",
+        "given":["John","Smith"]      }
+  ]
+  ,"gender": "male"
+  ,"birthDate": "1990-01-01"
+}
+2025-07-30T11:45:53.134-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ValidationService          : Validating Patient resource
+2025-07-30T11:45:53.451-04:00  INFO 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.util.XmlUtil                 : Unable to determine StAX implementation: java.xml/META-INF/MANIFEST.MF not found
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.722 s -- in com.example.fhirconverter.ConversionControllerTest
+[INFO] Running com.example.fhirconverter.ComplexConversionTest
+2025-07-30T11:45:53.485-04:00  INFO 16585 --- [fhir-json-converter] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.fhirconverter.ComplexConversionTest]: ComplexConversionTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-30T11:45:53.486-04:00  INFO 16585 --- [fhir-json-converter] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.fhirconverter.FhirConverterApplication for test class com.example.fhirconverter.ComplexConversionTest
+2025-07-30T11:45:53.502-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "458df948-db39-4e3b-b89c-ad5e16a6aa3e",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+{"system":"http://hl7.org/fhir/sid/us-ssn","value":"123-45-6789"},{"system":"urn:oid:1.2.3.4.5.6.7","value":"MRN001234"}  ],
+  "active":true,
+  "name": [
+{"given":["John","Michael","Doe"],"family":"Jr"}  ]
+  ,"gender": "male"
+  ,"birthDate": "1990-01-15"
+  ,"telecom": [
+{"system":"phone","use":"home","value":"(555) 123-4567"},{"system":"phone","use":"mobile","value":"(555) 987-6543"},      {
+        "system": "email",
+        "value": "john.doe@email.com",
+        "use": "home"
+      }
+  ]
+  ,"address": [
+{"country":"US","city":"Boston","line":["123 Main St"],"postalCode":"02101","state":"MA"}  ]
+}
+2025-07-30T11:45:53.504-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ValidationService          : Validating Patient resource
+Generated output: {"resourceType":"Patient","id":"458df948-db39-4e3b-b89c-ad5e16a6aa3e","meta":{"profile":["http://hl7.org/fhir/StructureDefinition/Patient"]},"identifier":[{"system":"http://hl7.org/fhir/sid/us-ssn","value":"123-45-6789"},{"system":"urn:oid:1.2.3.4.5.6.7","value":"MRN001234"}],"active":true,"name":[{"family":"Jr","given":["John","Michael","Doe"]}],"telecom":[{"system":"phone","value":"(555) 123-4567","use":"home"},{"system":"phone","value":"(555) 987-6543","use":"mobile"},{"system":"email","value":"john.doe@email.com","use":"home"}],"gender":"male","birthDate":"1990-01-15","address":[{"line":["123 Main St"],"city":"Boston","state":"MA","postalCode":"02101","country":"US"}]}
+2025-07-30T11:45:53.678-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Observation",
+  "id": "3d508d7f-317f-4444-9278-0f359bf0a99b",
+  "status": "final"
+  ,"category": [
+      {
+        "coding": [{
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }]
+      }
+  ]
+  ,"code": {
+    "coding": [{
+      "system": "http://loinc.org",
+      "code": "2339-0",
+      "display": "Glucose [Mass/volume] in Blood"
+    }]
+  }
+  ,"subject": {
+    "reference": "Patient/patient-123"
+  }
+  ,"effectiveInstant": "2024-03-15T00:00:00.000Z"
+  ,"issued": "2024-03-15T00:00:00.000Z"
+  ,"valueQuantity": {
+    "value":95,
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dL"
+  }
+  ,"referenceRange": [
+        {
+          "low": {
+            "value":70,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+          }
+,          "high": {
+            "value":100,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+          }
+        },        {
+          "low": {
+            "value":100,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+          }
+,          "high": {
+            "value":125,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+          }
+        },        {
+          "high": {
+            "value":126,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+          }
+        }  ]
+  ,"note": [
+      {
+        "text": "Fasting glucose level"
+      }
+  ]
+  ,"method": {
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "258026004",
+      "display": "Enzyme method"
+    }]
+  }
+  ,"specimen": {
+    "reference": "Specimen/specimen-001"
+  }
+}
+2025-07-30T11:45:53.680-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ValidationService          : Validating Observation resource
+2025-07-30T11:45:53.694-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Observation",
+  "id": "b8e0275d-cd04-48cb-854b-55de58c7d4cf",
+  "status": "final"
+  ,"category": [
+        {
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }]
+        },        {
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "survey",
+            "display": "Survey"
+          }]
+        }  ]
+  ,"code": {
+    "coding": [{
+      "system": "http://loinc.org",
+      "code": "85354-9",
+      "display": "Blood pressure panel with all children optional"
+    }]
+  }
+  ,"subject": {
+    "reference": "Patient/patient-123"
+  }
+  ,"effectiveDateTime": "2024-03-15T00:00:00.000Z"
+  ,"component": [
+      {
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          }]
+        }
+        ,"valueQuantity": {
+          "value":120,
+          "unit": "mmHg",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm[Hg]"
+        }
+        ,"referenceRange": [{
+          "low": {
+            "value":90,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+,          "high": {
+            "value":140,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+        }]
+        ,"interpretation": [{
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+            "code": "N"
+          }]
+        }]
+      },      {
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic blood pressure"
+          }]
+        }
+        ,"valueQuantity": {
+          "value":80,
+          "unit": "mmHg",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm[Hg]"
+        }
+        ,"referenceRange": [{
+          "low": {
+            "value":60,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+,          "high": {
+            "value":90,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+        }]
+        ,"interpretation": [{
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+            "code": "N"
+          }]
+        }]
+      },      {
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8478-0",
+            "display": "Mean blood pressure"
+          }]
+        }
+        ,"valueQuantity": {
+          "value":93,
+          "unit": "mmHg",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm[Hg]"
+        }
+      }  ]
+  ,"note": [
+        {
+          "text": "Patient was sitting during measurement"
+          ,"authorString": "Nurse Johnson"
+          ,"time": "2024-03-15T00:00:00.000Z"
+        },        {
+          "text": "Used automated blood pressure cuff"
+          ,"authorString": "Nurse Johnson"
+        }  ]
+  ,"bodySite": {
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "368209003",
+      "display": "Right arm"
+    }]
+  }
+  ,"method": {
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "37931006",
+      "display": "Auscultation"
+    }]
+  }
+  ,"device": {
+    "reference": "Device/device-bp-001"
+  }
+}
+2025-07-30T11:45:53.696-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ValidationService          : Validating Observation resource
+2025-07-30T11:45:53.713-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Bundle",
+  "id": "5c9d5eec-0e30-48a1-8746-ca395184d4f5",
+  "type": "transaction",
+  "timestamp": "2025-07-30T15:45:53.712609Z"
+  ,"entry": [
+      {
+        "fullUrl": "urn:uuid:patient-new-001",
+        "resource": {
+          "resourceType": "Patient",
+          "id": "patient-new-001",
+          "name": [{"given":["Jane","Elizabeth"],"family":"Doe"}],
+          "gender": "female",
+          "birthDate": "1985-06-15",
+          "telecom": [{"system":"phone","use":"home","value":"(555) 987-6543"}],
+          "address": [{"country":"US","city":"Seattle","line":["789 Oak Street"],"postalCode":"98101","state":"WA"}]
+        }
+        ,"request": {
+          "method": "POST",
+          "url": "Patient"
+        }
+      },      {
+        "fullUrl": "urn:uuid:obs-bp-001",
+        "resource": {
+          "resourceType": "Observation",
+          "status": "final",
+          "code": {
+            "coding": [{
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel"
+            }]
+          },
+          "subject": {
+            "reference": "urn:uuid:patient-new-001"
+          }
+          ,"component": [
+              {
+                "code": {
+                  "coding": [{
+                    "system": "http://loinc.org",
+                    "code": "8480-6",
+                    "display": "Systolic blood pressure"
+                  }]
+                }
+                ,"valueQuantity": {
+                  "value":130,
+                  "unit": "mmHg"
+                }
+              },              {
+                "code": {
+                  "coding": [{
+                    "system": "http://loinc.org",
+                    "code": "8462-4",
+                    "display": "Diastolic blood pressure"
+                  }]
+                }
+                ,"valueQuantity": {
+                  "value":85,
+                  "unit": "mmHg"
+                }
+              }          ]
+        }
+        ,"request": {
+          "method": "POST",
+          "url": "Observation"
+        }
+      },      {
+        "fullUrl": "urn:uuid:obs-weight-001",
+        "resource": {
+          "resourceType": "Observation",
+          "status": "final",
+          "code": {
+            "coding": [{
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }]
+          },
+          "subject": {
+            "reference": "urn:uuid:patient-new-001"
+          }
+        }
+        ,"request": {
+          "method": "POST",
+          "url": "Observation"
+        }
+      },      {
+        "fullUrl": "urn:uuid:encounter-001",
+        "resource": {
+          "resourceType": "Encounter",
+          "status": "finished",
+          "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "AMB"
+          },
+          "subject": {
+            "reference": "urn:uuid:patient-new-001"
+          }
+        }
+        ,"request": {
+          "method": "POST",
+          "url": "Encounter"
+        }
+      },      {
+        "fullUrl": "urn:uuid:med-req-001",
+        "resource": {
+          "resourceType": "MedicationRequest",
+          "status": "active",
+          "intent": "order",
+          "subject": {
+            "reference": "urn:uuid:patient-new-001"
+          },
+          "medicationCodeableConcept": {
+            "coding": [{
+              "system": "http://snomed.info/sct",
+              "code": "387458008",
+              "display": "Aspirin 81 MG Oral Tablet"
+            }]
+          }
+        }
+        ,"request": {
+          "method": "POST",
+          "url": "MedicationRequest"
+        }
+      },      {
+        "fullUrl": "urn:uuid:condition-001",
+        "resource":{"resourceType":"Condition","clinicalStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/condition-clinical","code":"active"}]},"verificationStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/condition-ver-status","code":"confirmed"}]},"code":{"coding":[{"system":"http://snomed.info/sct","code":"38341003","display":"Hypertension"}]},"subject":{"reference":"urn:uuid:patient-new-001"},"encounter":{"reference":"urn:uuid:encounter-001"},"onsetDateTime":"2024-03-15"}        ,"request": {
+          "method": "POST",
+          "url": "Condition"
+        }
+      }  ]
+}
+2025-07-30T11:45:53.736-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "8b895059-f655-4bf5-8ab1-0a9b00114d4f",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+{"system":"http://hl7.org/fhir/sid/us-ssn","value":"123-45-6789"},{"system":"urn:oid:1.2.3.4.5.6.7","value":"MRN001234"},{"system":"urn:oid:2.16.840.1.113883.4.3.25","value":"D123456789"},        {
+          "system": "http://hospital.example.org/ids",
+          "value": "HOSP-12345"
+          ,"type": {
+            "coding": [{
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "MR",
+              "display": "Medical Record Number"
+            }]
+          }
+        }
+  ],
+  "active":true,
+  "name": [
+        {
+          "use": "official",
+          "family": "Smith",
+          "given":["John","Michael"],
+          "prefix":["Dr."],
+          "suffix":["Jr.","MD"],
+          "period": {
+            "start": "2020-01-01"
+          }
+        },        {
+          "use": "nickname",
+          "family": "",
+          "given":["Johnny"]        }  ]
+  ,"gender": "male"
+  ,"birthDate": "1980-03-15"
+  ,"deceasedDateTime": "2023-12-31"
+  ,"maritalStatus": {
+    "coding": [{
+      "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+      "code": "M",
+      "display": "Married"
+    }]
+  }
+  ,"telecom": [
+{"system":"phone","use":"work","value":"(555) 555-0199"},      {
+        "system": "fax",
+        "value": "555-555-0198",
+        "use": "work"
+      }
+,{"system":"phone","use":"home","value":"(555) 123-4567"},{"system":"phone","use":"mobile","value":"(555) 987-6543"},        {
+          "system": "email",
+          "value": "john.smith@email.com",
+          "use": "home"
+        }
+,        {
+          "system": "email",
+          "value": "dr.smith@hospital.org",
+          "use": "work"
+        }
+  ]
+  ,"address": [
+        {
+          "use": "home",
+"type": "physical",          "line":["123 Main Street","Apt 4B"],
+"city": "Boston","state": "MA","postalCode": "02101",          "country": "US"
+,
+          "period": {
+            "start": "2020-01-01"
+          }
+        },        {
+          "use": "work",
+          "line": ["456 Hospital Drive"],
+"city": "Cambridge","state": "MA","postalCode": "02139",          "country": "US"
+        }  ]
+  ,"contact": [
+        {
+          "relationship": [{
+            "coding": [{
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "C",
+              "display": "Emergency Contact"
+            }]
+          }],
+          "name": {
+              "family": "Smith",
+              "given":["Jane","Marie"]          }
+          ,"telecom": [
+{"system":"phone","use":"home","value":"(555) 123-9999"},              {
+                "system": "email",
+                "value": "jane.smith@email.com"
+              }
+          ]
+        }
+,        {
+          "relationship": [{
+            "coding": [{
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N",
+              "display": "Next of Kin"
+            }]
+          }],
+          "name": {
+              "text": "Robert Smith"
+          }
+          ,"telecom": [
+{"system":"phone","use":"home","value":"(555) 456-7890"}          ]
+        }
+  ]
+  ,"communication": [
+      {
+        "language": {
+          "coding": [{
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }]
+        },
+        "preferred": true
+      }
+,        {
+          "language": {
+            "coding": [{
+              "system": "urn:ietf:bcp:47",
+              "code": "es",
+              "display": "Spanish"
+            }]
+          }
+        }
+  ]
+  ,"extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "ombCategory",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2106-3",
+              "display": "White"
+            }
+          },
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      }
+,      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "ombCategory",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2186-5",
+              "display": "Not Hispanic or Latino"
+            }
+          },
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+,      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+        "valueCode": "male"
+      }
+  ]
+}
+2025-07-30T11:45:53.737-04:00  WARN 16585 --- [fhir-json-converter] [           main] ca.uhn.fhir.parser.LenientErrorHandler   : [element="family"] Invalid attribute value "": Attribute value must not be empty ("")
+2025-07-30T11:45:53.739-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ValidationService          : Validating Patient resource
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.260 s -- in com.example.fhirconverter.ComplexConversionTest
+[INFO] Running com.example.fhirconverter.GenderDebugTest
+2025-07-30T11:45:53.747-04:00  INFO 16585 --- [fhir-json-converter] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.fhirconverter.GenderDebugTest]: GenderDebugTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-30T11:45:53.747-04:00  INFO 16585 --- [fhir-json-converter] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.fhirconverter.FhirConverterApplication for test class com.example.fhirconverter.GenderDebugTest
+2025-07-30T11:45:53.756-04:00 DEBUG 16585 --- [fhir-json-converter] [           main] c.e.f.service.ConversionService          : Raw rendered JSON from template:
+{
+  "resourceType": "Patient",
+  "id": "134ff38e-4758-4418-b3e3-89ad93ad2622",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Patient"]
+  },
+  "identifier": [
+      {
+        "system": "urn:oid:1.2.3.4.5",
+        "value": "12345"
+      }
+  ],
+  "active":true,
+  "name": [
+      {
+        "use": "official",
+        "family": "Doe",
+        "given":["John"]      }
+  ]
+  ,"gender": "male"
+  ,"birthDate": "1990-01-15"
+}
+Response success: true
+Response errors: null
+Generated output:
+{"resourceType":"Patient","id":"134ff38e-4758-4418-b3e3-89ad93ad2622","meta":{"profile":["http://hl7.org/fhir/StructureDefinition/Patient"]},"identifier":[{"system":"urn:oid:1.2.3.4.5","value":"12345"}],"active":true,"name":[{"use":"official","family":"Doe","given":["John"]}],"gender":"male","birthDate":"1990-01-15"}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.example.fhirconverter.GenderDebugTest
+[INFO] Running com.example.fhirconverter.FhirFilterTests
+2025-07-30T11:45:53.760-04:00  INFO 16585 --- [fhir-json-converter] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.fhirconverter.FhirFilterTests]: FhirFilterTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-30T11:45:53.760-04:00  INFO 16585 --- [fhir-json-converter] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.fhirconverter.FhirConverterApplication for test class com.example.fhirconverter.FhirFilterTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.example.fhirconverter.FhirFilterTests
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.809 s
+[INFO] Finished at: 2025-07-30T11:45:53-04:00
+[INFO] ------------------------------------------------------------------------

@@ -46,18 +46,18 @@
   ]
   {% comment %} All optional fields below use leading comma pattern {% endcomment %}
   {% if gender %}
-    ,{% case gender | downcase %}
-      {% when 'm', 'male' %}
-        "gender": "male"
-      {% when 'f', 'female' %}
-        "gender": "female"
-      {% when 'o', 'other' %}
-        "gender": "other"
-      {% when 'u', 'unknown' %}
-        "gender": "unknown"
-      {% else %}
-        "gender": "{{ gender | fhir_code: 'gender' }}"
-    {% endcase %}
+    ,{% assign gender_lower = gender | downcase %}
+    {% if gender_lower == 'm' or gender_lower == 'male' %}
+    "gender": "male"
+    {% elsif gender_lower == 'f' or gender_lower == 'female' %}
+    "gender": "female"
+    {% elsif gender_lower == 'o' or gender_lower == 'other' %}
+    "gender": "other"
+    {% elsif gender_lower == 'u' or gender_lower == 'unknown' %}
+    "gender": "unknown"
+    {% else %}
+    "gender": "{{ gender | fhir_code: 'gender' }}"
+    {% endif %}
   {% endif %}
   {% if birth_date %}
     ,"birthDate": "{{ birth_date | fhir_date: 'MM/dd/yyyy', 'yyyy-MM-dd' }}"
